@@ -20,6 +20,7 @@ const port =        setup.port;
 ////////////////// db config to capture messages   //////////////////////
 ////////////////////////////////////////////////////////////////////////
 const db = process.env.MONGODB_URI || setup.db.uri;
+//const db = process.env.MONGODB_URI || keys.testdb.uri;
 require('./db/mongoose')(db);
 
 //////////////////////////////////////////////////////////////////////////
@@ -35,9 +36,10 @@ app.use(cors())
 /////////////////// messaging alert for platform errors ///////////////
 //////////////////////////////////////////////////////////////////////
 
+// for a test, just update the from and to -- with your personal email. Update config/gmail.js
 const mailObject = {
-  from: '"ChaoticBots 👥" <chaoticbotshelp@gmail.com>',
-  to: 'patrick.howard@hotmail.com',
+  from: '"ChaoticBots 👥" <yourcompany@gmail.com>',
+  to: 'seniordev@gmail.com',
   subject: 'Platform Error',
   text: ''
 }
@@ -66,7 +68,7 @@ require('./routes/admin')(adminRoute);
 app.get('/', (req, res) => {
   const help = `
   <pre>
-    xio APIs test platform
+    Test Server Platform
 
     Use an Authorization header to work with your own data:
     fetch(url, { headers: { 'Authorization': 'whatever-you-want' }})
