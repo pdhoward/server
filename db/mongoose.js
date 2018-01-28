@@ -5,9 +5,7 @@
 //////////////////////////////////////////////////////////////////////
 
 const mongoose =            require('mongoose');
-const bluebird =            require('bluebird');
-const initializeMembers =   require('./initialize/getmembers')
-const initializeScripts =   require('./initialize/getscripts')
+const initializeClients =   require('./initialize/getclients')
 const initializeAgents =    require('./initialize/getagents')
 const { g, b, gr, r, y } =  require('../console')
 
@@ -17,7 +15,7 @@ let options = {
 };
 
 module.exports = function (dbURI) {
-    mongoose.Promise = bluebird;
+    mongoose.Promise = global.Promise
     mongoose.connect(dbURI, options)
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, r('connection error...')));
