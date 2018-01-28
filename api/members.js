@@ -65,9 +65,11 @@ module.exports = {
       })
     }
 
-
-  // fetch users ideas from db in the same geographic are as active user
-  // note this search excludes the active user from the search results
+  // A mongoose pattern for a more sophisticated search
+  // Retrieve users from db in the same geographic area as the active user.
+  // The param being passed has context and user id  properties set to
+  // current active user. But note that this search excludes the active user
+  // from the search results
 /*
   fetch: function(params, callback) {
 
