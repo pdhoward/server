@@ -4,7 +4,7 @@ We would love to have you contribute to this project!
 
 ## How To Contribute
 
-* check the [existing issues](https://github.com/pdhoward/dbstore/issues) to see if one matches the change you want to add
+* check the [existing issues](https://github.com/pdhoward/server/issues) to see if one matches the change you want to add
 * fork this project
 * create a descriptive branch name that starts with your name
 * make all changes on this branch
