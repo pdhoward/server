@@ -1,6 +1,6 @@
 'use strict';
 
-const Member =              require('../schemas/Client')
+const Client =              require('../schemas/Client')
 const mongoose =            require('mongoose')
 const testClients =         require('../data/clients')
 const { g, b, gr, r, y } =  require('../../console')

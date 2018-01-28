@@ -18,7 +18,7 @@ const auth = (router) => {
     req.token = token
     next()
   } else {
-    console.log("No token detected. Set temp" )
+    console.log("No token detected. Assign temporary token for testing" )
     req.token = keys.token   // assign temp token
 		// note for product call next(err)
     next()

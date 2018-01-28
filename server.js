@@ -52,8 +52,6 @@ process.on('uncaughtException', function (er) {
     })
   })
 
-
-
 //////////////////////////////////////////////////////
 ////////// Register and Config Routes ///////////////
 ////////////////////////////////////////////////////
@@ -64,11 +62,11 @@ const auth =     express.Router();
 const errs =     express.Router();
 const help =     express.Router();
 
-require('../routes/auth')(auth);
-require('../routes/sms')(sms);
-require('../routes/web')(web);
-require('../routes/error')(errs);
-require('../routes/help')(help);
+require('./routes/auth')(auth);
+require('./routes/sms')(sms);
+require('./routes/web')(web);
+require('./routes/error')(errs);
+require('./routes/help')(help);
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -96,14 +94,12 @@ app.get('/api', bodyParser.json(), (req, res) => {
   })
 })
 
-
 // remove member -- update to set a boolean flag instead
 app.delete('/api/:id', (req, res) => {
   api.deleteMember(req.token, req.params.id, function(response){
     res.status(200).send(response)
   })
 })
-
 
 // add new member
 app.post('/api', bodyParser.json(), (req, res) => {
@@ -149,34 +145,6 @@ app.post('/chat', bodyParser.json(), (req, res) => {
       })
     }
 })
-
-///////////////////////////////////////////////////
-// State Machine
-/////////////////////////////////////////////////
-var Example = require("./db/schemas/exampleModel.js");
-
-const machineRoute =     express.Router();
-require('./routes/machine/design1')(machineRoute);
-
-app.get("/machine", machineRoute )
-
-app.post("/submit", function(req, res) {
-
-  req.body.array = ["item1", "item2", "item3"];
-  req.body.boolean = false;
-
-  var content = new Example(req.body);
-
-  content.save(function(error, doc) {
-    if (error) {
-      res.send(error);
-    }
-    else {
-      res.send(doc);
-    }
-  });
-});
-
 
 // spin up http server
 app.listen(port, () => {

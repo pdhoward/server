@@ -1,7 +1,7 @@
 
 ## Test Server
 
-A backend database server used strictly for prototyping data models, methods and server fucntion
+A backend database server used strictly for prototyping data models, methods and server function
 
 Rather than in-memory db management, mongodb is used (key configurations set through config folder)
 
@@ -14,7 +14,7 @@ Getting the app running on your local machine takes only a few steps:
 3. install its dependencies - `npm install`
 4. start the app - npm run start
 
-Configurations can be set for Mlab or a local mongo db.
+Configurations can be set for MLab or a local mongo db.
 See server.js to modify connections call accordingly
 
 ## Backend Server
