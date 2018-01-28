@@ -13,11 +13,13 @@ const help = (router) => {
 
 		const help = `
 	  <pre>
-	  scriptxio: intelligent interaction platform
+	  Test server
 
 	  Use an Authorization header to work with your own data:
 	  fetch(url, { headers: { 'Authorization': 'whatever-you-want' }})
-	  Endpoints vary by dbstore being modeled. Check the code for details
+	  Endpoints vary by dbstore being modeled.
+
+		Check the code for details
 
 	  &copy2016 xio all rights reserved
 	  </pre> `

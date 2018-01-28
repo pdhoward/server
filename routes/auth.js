@@ -1,7 +1,7 @@
 'use strict';
 
 ///////////////////////////////////////////////////////
-/////     Authorization (placeholder - refactor)  ////
+/////     Authorization (testing purposes)        ////
 /////////////////////////////////////////////////////
 
 const bodyParser =  			require('body-parser')
@@ -13,15 +13,14 @@ const auth = (router) => {
 
 	console.log("-------------AUTHORIZATION   -----------")
 	const token = req.get('Authorization')
+
   if (token) {
     req.token = token
     next()
   } else {
-    console.log("Temp Workaround on Server Auth" )
+    console.log("No token detected. Set temp" )
     req.token = keys.token   // assign temp token
-		//console.log('reminder - need JWT authorization')
-    //let err = new Error('Not Authorized')
-		//next(err)
+		// note for product call next(err)
     next()
   }
  });

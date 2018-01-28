@@ -75,44 +75,16 @@ require('../routes/help')(help);
 ///////////////////////////// API CATALOGUE /////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
-app.get('/', (req, res) => {
-  const help = `
-  <pre>
-    Test Server Platform
-
-    Use an Authorization header to work with your own data:
-    fetch(url, { headers: { 'Authorization': 'whatever-you-want' }})
-    Endpoints vary by dbstore being modeled. Check the code for details
-
-    &copy2016 xio all rights reserved
-  </pre>
-  `
-
-  res.send(help)
-})
-
-
-
-///////////////////////////////////////////////////
-//      Simple authorization test
-/////////////////////////////////////////////////
-app.use((req, res, next) => {
-  const token = req.get('Authorization')
-  if (token) {
-    req.token = token
-    next()
-  } else {
-    console.log("Temp Workaround on Server Auth" )
-    req.token = "123456"
-    next()
-
-  }
-})
-
-///////////////////////////////////////////////////
-// Administrative Management
-/////////////////////////////////////////////////
-app.use('/admin', adminRoute)
+// auth test
+app.use(auth)
+// error handling
+app.use(errs)
+// help
+app.get('/', help)
+// twilio handling
+app.use('/api/sms', sms)
+// web handling
+app.use('/api/web', web)
 
 ///////////////////////////////////////////////////
 //  APIs - MongoSB Store
