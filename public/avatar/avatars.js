@@ -1,4 +1,4 @@
-const IMAGES_FOLDER = 'avatar/small';
+const IMAGES_FOLDER = 'avatar/persona';
 const IMAGE_NAMES = [
 'ade.jpg',
 'chris.jpg',

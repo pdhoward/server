@@ -1,40 +1,17 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>Schema Example</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
       crossorigin="anonymous">
-    <style>
-      input{
-        display: block;
-        font-size: 24px;
-        height: 36px;
-        margin: 5px;
-      }
-    </style>
+    <title>Multi Step Action</title>
   </head>
   <body>
-    <div class='container bg-faded'>
-      <div class='row'>
-       <div class='web-widget'>
-
-    <form action="/submit" method="post">
-      <input type="text" name="name" placeholder="firstname">
-      <input type="number" name="number" placeholder="id">
-      <input type="text" name ="email" placeholder="email">
-      <input type="text" name="longstring" placeholder="password > 6 char">
-
-      <!-- Uncomment me to show how date works-->
-      <!-- <input type="date" name="date"> -->
-
-      <input type="submit" style="background-color:rgb(255,0,0)">
-    </form>
-    </div>
-  </div>
-  </div>
+    <div id="root"></div>
+    <script type="text/javascript" src="./bundle.js"></script>
   </body>
 </html>
