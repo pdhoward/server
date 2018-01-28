@@ -20,8 +20,7 @@ module.exports = function (dbURI) {
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, r('connection error...')));
     db.once('open', function callback() {
-        initializeMembers.createDefaultMembers();
-        initializeScripts.getScripts();
+        initializeClients.getClients();
         initializeAgents.getAgents();
         console.log(g('MongoDB Connected'));
     });

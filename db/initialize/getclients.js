@@ -1,34 +1,34 @@
 'use strict';
 
-const Member =              require('../schemas/Member')
+const Member =              require('../schemas/Client')
 const mongoose =            require('mongoose')
-const testMembers =         require('../data/members')
+const testClients =         require('../data/clients')
 const { g, b, gr, r, y } =  require('../../console')
 
 const limit = 1;
 
-function createDefaultMembers () {
-      Member.find({}).limit(limit).exec(function (err, collection){
+function getClients () {
+      Client.find({}).limit(limit).exec(function (err, collection){
           if (collection.length === 0) {
-            // iterate over the set of channels for initialization and create entries
-            testMembers.map(function(member) {
-                let newMember = new Member(member)
-                newMember.save(function (err, data) {
+            // iterate over the set of clients for initialization and create entries
+            testClients.map(function(client) {
+                let newClient = new Client(client)
+                newClient.save(function (err, data) {
                   if(err) {
                     console.log(err);
                     return res.status(500).json({msg: 'internal server error'});
                   }
                 })
               })
-            console.log(g('Test Members Initialized in MongoDB'))
+            console.log(g('Test Clients Initialized in MongoDB'))
             return
           }
           else {
-            console.log(g('Members Exist in MongoDB'))
+            console.log(g('Clients Exist in MongoDB'))
           }
         })
       }
 
 module.exports = {
-  createDefaultMembers: createDefaultMembers
+  getClients: getClients
 }
