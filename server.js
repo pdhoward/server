@@ -10,10 +10,10 @@ const cors =        require('cors')
 const logger =      require("morgan");
 const api =         require('./api')
 const setup =       require('./config').init();
-const transport =   require('./setup/gmail')
+const transport =   require('./config/gmail')
 
 const app =  express();
-//const host =        setup.SERVER.HOST;
+
 const port =        setup.port;
 
 //////////////////////////////////////////////////////////////////////////
@@ -29,7 +29,6 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static('public'));
-app.options('*', cors());
 app.use(cors())
 
 ///////////////////////////////////////////////////////////////////////

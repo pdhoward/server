@@ -1,0 +1,49 @@
+{
+	"db": {
+		"username": "xio",
+		"password": "Charl0tte",
+		"host": "ds133597.mlab.com",
+		"port": "33597",
+		"name": "activex",
+		"uri": "mongodb://xio:Charl0tte@ds133597.mlab.com:33597/activex"
+	},
+	"sessionSecret": "superhards3cr3t",
+	"facebook": {
+		"clientID": "309077476219184",
+		"clientSecret": "21f9ea80ef5bd0d517062fd50cc932a3",
+		"callbackURL": "/auth/facebook/callback",
+		"profileFields": ["id", "displayName", "photos"]
+	},
+	"twitter": {
+		"consumerKey": "JA4BIib9jLsunB6LimJBBMxfj",
+		"consumerSecret": "uS2BN9IV9lKmdsRHZu3ta2B8Xl0PpxeQNj8BYhFfjevyTCrC7G",
+		"token": "3014822554-LL4oDX0uFrDfyTlKP7US4oS11zdUqsgfZ2eEejD",
+		"tokenSecret": "wvOR0cEg6RQOTlPfQLJRxFKUbNyr9WeA7dJFZ3pwLfqdU",
+		"callbackURL": "/auth/twitter/callback",
+		"username": "@chaoticbots",
+		"profileFields": ["id", "displayName", "photos"]
+	},
+	"twilio": {
+		"sid": "ACe2f5abf6cf7c589a662a8e38097bbac1",
+		"token": "ACe2f5abf6cf7c589a662a8e38097bbac1",
+	  "tokenSecret": "09d6cb826012afbe4f0bca7ad3dfe33d",
+	  "username": "+19145005391",
+		"chaotic": "+19802294921"
+	},
+	"redis": {
+		"host": "redis-15416.c12.us-east-1-4.ec2.cloud.redislabs.com",
+		"port": 15416,
+		"password": "nashv1ll"
+	},
+	"watsonclassifier": {
+		"url": "https://gateway.watsonplatform.net/natural-language-classifier/api",
+		"username": "947a6405-d061-43d7-a696-51daa119c32e",
+		"password": "n70l6K7n2Tnt",
+		"classifier1": "e55175x249-nlc-116104"
+	},
+	"testdb": {
+		"url": "http://localhost:5002/api/agent"
+	},
+	"port": 5002,
+	"token": "secret"
+}
