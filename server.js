@@ -88,7 +88,7 @@ app.use('/api/sms', sms)
 // web handling
 app.use('/api/web', web)
 // db handling for clients and sales
-app.use('/api/db', dbs)
+app.use('/api/dbc', dbc)
 // db handling for agents and products
 app.use('/api/dba', dba)
 
