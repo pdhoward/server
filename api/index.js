@@ -8,7 +8,7 @@
 const clone =     require('clone')
 const uuidv1 =    require('uuid/v1');
 
-const dbMember = require('./api/members')
+const dbMember = require('./members')
 
 
 ////////////////////////////////////
@@ -74,37 +74,7 @@ function updateRecord(data, contact){
     resolve(newarr)
   })
 }
-///////////////////////////////////////////////////
-// REFACTOR - TEST MONGO INTEGRATION with CHAT WIDGET
-/////////////////////////////////////////////////
-const addMemberFromChat = (token, contact, cb) => {
 
-  console.log("ENTERED addMember Chat")
-  let param = {}
-  param.subscribe = {}
-  // set defaults
-  param.subscribe.prayeralerts = false
-  param.subscribe.updates = false
-  param.subscribe.moments = false
-  param.avatarURL = "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y"
-  param.email = "you@example.com"
-  param.firstname = contact.name
-
-  // need a model design - some kind of an org code
-  //let data = getClient(token)
-
-  async function thread(param) {
-    let result = await dbMember.put(param)
-    return result
-  }
-
-  thread(param).then((result) => {
-    cb(result)
-  }).catch((err) => {
-    console.log("ERROR IN Add Member PROCESSING")
-    console.log(err)
-  })
-}
 ///////////////////////////////////////////////////
 // REFACTOR - Add new member
 /////////////////////////////////////////////////
@@ -152,7 +122,6 @@ const deleteMember = (token, id, cb) => {
 
 /////////////////////////////////////
 module.exports = {
-  addMemberFromChat,
   addMember,
   deleteMember,
   getMembers,

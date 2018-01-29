@@ -5,6 +5,7 @@
 ////////////////////////////////////////////////////
 
 const bodyParser =  			require('body-parser')
+const api =         			require('../api')
 
 const dbs = (router) => {
 
@@ -15,21 +16,21 @@ const dbs = (router) => {
   let method = req.method
 
 	switch(method) {
-			case 'get':
+			case 'GET':
 				api.getMembers(req.token, function(response){
 					res.status(200).send(response)
 					  next()
 				})
 			break;
 
-			case 'delete':
+			case 'DELETE':
 				api.deleteMember(req.token, req.params.id, function(response){
 		    	res.status(200).send(response)
 					  next()
 			  })
 			break;
 
-			case 'post':
+			case 'POST':
 			if (req.body) {
 		        api.updateMember(req.token, req.body, function(response){
 		          res.status(200).send(response)
@@ -39,12 +40,12 @@ const dbs = (router) => {
 		    else {
 		      res.status(403).send({
 		        error: 'Please provide all required data'
-						next()
 		      })
+					next()
 		    }
 			break;
 
-			case 'put':
+			case 'PUT':
 			if (req.body) {
 		    api.addMember(req.token, req.body, function(response){
 		      res.status(200).send(response)
@@ -54,8 +55,8 @@ const dbs = (router) => {
 		    else {
 		      res.status(403).send({
 		        error: 'Please provide all required data'
-						  next()
 		      })
+					next()
 		    }
 			break;
 

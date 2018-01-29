@@ -8,7 +8,6 @@ const express =     require('express')
 const bodyParser =  require('body-parser')
 const cors =        require('cors')
 const logger =      require("morgan");
-const api =         require('./api')
 const setup =       require('./config').init();
 const transport =   require('./config/gmail')
 
@@ -37,10 +36,10 @@ app.use(cors())
 /////////////////// messaging alert for platform errors ///////////////
 //////////////////////////////////////////////////////////////////////
 
-// for a test, just update the from and to -- with your personal email. Update config/gmail.js
+// for a test, just update the from and to -- with your personal email address and update config/gmail.js
 const mailObject = {
   from: '"ChaoticBots 👥" <yourcompany@gmail.com>',
-  to: 'seniordev@gmail.com',
+  to: 'seniordev@example.com',
   subject: 'Platform Error',
   text: ''
 }
