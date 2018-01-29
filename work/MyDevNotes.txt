@@ -2,7 +2,12 @@
 
 MY DEVNOTES
 
+YOUR ASSIGNMENT - CLASS SERVER ACTIVITY
+
 -------------------
+
+BE SURE TO CHANGE THE NAME OF THE FOLDER configEx to config
+Provide required keys and tokens
 
 1. add a new schema called Client which models data/clients
 
@@ -12,13 +17,14 @@ use the schema Agent which models data/agents as a guide
 
 use initializeAgents as your guide
 
-3. Test the functions. Open a mongodb terminal, drop the collections for agents and clients, and restart the server, validating that collections were created
+3. Test the function to initialize client collection. 
 
+Open a mongodb terminal, drop the collections for agents and clients, and restart the server, validating that collections were created
 
 mongo shell quick reference guide
 https://docs.mongodb.com/manual/reference/mongo-shell/
 
-Some helpful mongodb commands include
+Some helpful mongodb commands for this step include
 
 show dbs
 use <db name>
