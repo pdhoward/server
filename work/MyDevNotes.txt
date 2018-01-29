@@ -1,0 +1,32 @@
+
+
+MY DEVNOTES
+
+-------------------
+
+1. add a new schema called Client which models data/clients
+
+use the schema Agent which models data/agents as a guide
+
+2. update db/mongoose.js initialization routine inside of db.once .. to call the function for initializing the collection of clients
+
+use initializeAgents as your guide
+
+3. Test the functions. Open a mongodb terminal, drop the collections for agents and clients, and restart the server, validating that collections were created
+
+
+mongo shell quick reference guide
+https://docs.mongodb.com/manual/reference/mongo-shell/
+
+Some helpful mongodb commands include
+
+show dbs
+use <db name>
+show collections
+db.<collection>.count()
+db.<collection>.find()
+db.<collection>.drop()
+
+4. Create a route and api (similar to agents) to render the clients collection on  webpage
+
+

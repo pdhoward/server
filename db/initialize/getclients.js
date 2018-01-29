@@ -1,5 +1,9 @@
 'use strict';
 
+///////////////////////////////////////////////////////////////////////
+///////           load a test data set of clients if needed    ////////
+/////////////////////////////////////////////////////////////////////
+
 const Client =              require('../schemas/Client')
 const mongoose =            require('mongoose')
 const testClients =         require('../data/clients')

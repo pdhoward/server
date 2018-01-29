@@ -21,7 +21,7 @@ const port =        setup.port;
 ////////////////////////////////////////////////////////////////////////
 
 //const db = process.env.MONGODB_URI || setup.db.uri;
-const db = process.env.MONGODB_URI || keys.testdb.uri;
+const db = process.env.MONGODB_URI || setup.testdb.uri;
 require('./db/mongoose')(db);
 
 //////////////////////////////////////////////////////////////////////////
