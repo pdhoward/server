@@ -60,12 +60,14 @@ process.on('uncaughtException', function (er) {
 const sms =      express.Router();
 const web =      express.Router();
 const auth =     express.Router();
+const dbs =      express.Router();
 const errs =     express.Router();
 const help =     express.Router();
 
 require('./routes/auth')(auth);
 require('./routes/sms')(sms);
 require('./routes/web')(web);
+require('./routes/dbs')(dbs);
 require('./routes/error')(errs);
 require('./routes/help')(help);
 
@@ -84,11 +86,14 @@ app.get('/', help)
 app.use('/api/sms', sms)
 // web handling
 app.use('/api/web', web)
+// db handling
+app.use('/api/db', dbs)
+
 
 ///////////////////////////////////////////////////
 //  APIs - MongoSB Store
 /////////////////////////////////////////////////
-
+/*
 app.get('/api', bodyParser.json(), (req, res) => {
   api.getMembers(req.token, function(response){
     res.status(200).send(response)
@@ -130,23 +135,7 @@ app.post('/api/updateMember', bodyParser.json(), (req, res) => {
     }
 })
 
-// add a new member from chat widget
-app.post('/chat', bodyParser.json(), (req, res) => {
-  console.log("this worked")
-  console.log(req.body)
-  //res.send(req.body)
-  if (req.body) {
-    api.addMemberFromChat(req.token, req.body, function(response){
-      res.status(200).send(response)
-      })
-    }
-    else {
-      res.status(403).send({
-        error: 'Please provide all required data'
-      })
-    }
-})
-
+*/
 // spin up http server
 app.listen(port, () => {
   console.log('Server listening on port %s, Ctrl+C to stop', port)
