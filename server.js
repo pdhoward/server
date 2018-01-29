@@ -85,56 +85,9 @@ app.get('/', help)
 app.use('/api/sms', sms)
 // web handling
 app.use('/api/web', web)
-// db handling
+// db handling for clients
 app.use('/api/db', dbs)
 
-
-///////////////////////////////////////////////////
-//  APIs - MongoSB Store
-/////////////////////////////////////////////////
-/*
-app.get('/api', bodyParser.json(), (req, res) => {
-  api.getMembers(req.token, function(response){
-    res.status(200).send(response)
-  })
-})
-
-// remove member -- update to set a boolean flag instead
-app.delete('/api/:id', (req, res) => {
-  api.deleteMember(req.token, req.params.id, function(response){
-    res.status(200).send(response)
-  })
-})
-
-// add new member
-app.post('/api', bodyParser.json(), (req, res) => {
-  if (req.body) {
-    api.addMember(req.token, req.body, function(response){
-      res.status(200).send(response)
-      })
-    }
-    else {
-      res.status(403).send({
-        error: 'Please provide all required data'
-      })
-    }
-})
-
-// update member
-app.post('/api/updateMember', bodyParser.json(), (req, res) => {
-  if (req.body) {
-        api.updateMember(req.token, req.body, function(response){
-          res.status(200).send(response)
-      })
-    }
-    else {
-      res.status(403).send({
-        error: 'Please provide all required data'
-      })
-    }
-})
-
-*/
 // spin up http server
 app.listen(port, () => {
   console.log('Server listening on port %s, Ctrl+C to stop', port)

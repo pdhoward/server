@@ -41,7 +41,7 @@ const dbs = (router) => {
 		      res.status(403).send({
 		        error: 'Please provide all required data'
 		      })
-					next()
+					next(err)
 		    }
 			break;
 
@@ -56,13 +56,13 @@ const dbs = (router) => {
 		      res.status(403).send({
 		        error: 'Please provide all required data'
 		      })
-					next()
+					next(err)
 		    }
 			break;
 
 			default:
 			console.log("Error - default processing in dbs path")
-			  next()
+			  next(err)
 			break;
 
 	}
