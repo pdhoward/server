@@ -7,7 +7,7 @@
 const bodyParser =  			require('body-parser')
 const api =         			require('../api')
 
-const dbs = (router) => {
+const dbc = (router) => {
 
 	router.use(bodyParser.json());
 	router.use(function(req, res, next) {
@@ -70,4 +70,4 @@ const dbs = (router) => {
  });
 }
 
-module.exports = dbs
+module.exports = dbc
