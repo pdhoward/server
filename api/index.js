@@ -7,86 +7,54 @@
 
 const clone =     require('clone')
 const uuidv1 =    require('uuid/v1');
-
-const dbMember = require('./members')
+const db =        require('./members')
 
 
 ////////////////////////////////////
-//////  client db functions  //////
+///////   get all clients ////////
 //////////////////////////////////
-const getClient = (token) => {
-  let data = clientDB[token]
-  if (data == null) {
-    data = clientDB[token] = clone(clients)
-  }
-  return data
-}
+const getClients = (token, cb) => {
 
-///////////////////////////////////////////////////////////
-/////// REFACTOR CONNECT GET PROFILE TO MONGO ////////////
-/////////////////////////////////////////////////////////
-const getMembers = (token, cb) => {
-  console.log("ENTERED getMembers")
-
-  // need a model design - some kind of an org code
-  //let data = getClient(token)
   async function thread() {
-    let result = await dbMember.get()
+    let result = await db.get()
     return result
   }
 
   thread().then((result) => {
     cb(result)
   }).catch((err) => {
-    console.log("ERROR IN Add Member PROCESSING")
+    console.log("ERROR IN Get Client PROCESSING")
     console.log(err)
   })
 }
 
 
-///////////////////////////////////////////////////////////
-/////// REFACTOR CONNECT Update Member in Mongo   ////////
-/////////////////////////////////////////////////////////
+////////////////////////////////////
+///////   update client  //////////
+//////////////////////////////////
 
-const updateMember = (token, contact, cb) => {
+const updateClient = (token, contact, cb) => {
 
-  // need a model design - some kind of an org code
-  //let data = getClient(token)
   async function thread(contact) {
-    let result = await dbMember.update(contact)
+    let result = await db.update(contact)
     return result
   }
 
-  thread(contact).then((profileArray) => {
-    cb(profileArray)
+  thread(contact).then((arr) => {
+    cb(arr)
   }).catch((err) => {
-    console.log("ERROR IN updateProfile PROCESSING")
+    console.log("ERROR IN Update Client PROCESSING")
     console.log(err)
   })
 }
 
-function updateRecord(data, contact){
-  return new Promise((resolve, reject) => {
-    let newarr = data.map((c) => {
-    if (c.id == contact.id) return contact
-    return c
-    })
-    resolve(newarr)
-  })
-}
+////////////////////////////////////
+///////   add new client  //////////
+//////////////////////////////////
+const addClient = (token, contact, cb) => {
 
-///////////////////////////////////////////////////
-// REFACTOR - Add new member
-/////////////////////////////////////////////////
-const addMember = (token, contact, cb) => {
-
-  console.log("ENTERED addMember")
-  // need a model design - some kind of an org code
-  //let data = getClient(token)
-
-  // async await function to drive synchronous processing of db update
   async function thread(contact) {
-    let result = await dbMember.put(contact)
+    let result = await db.put(contact)
     return result
   }
 
@@ -98,17 +66,13 @@ const addMember = (token, contact, cb) => {
   })
 }
 
+////////////////////////////////////
+///////   delete client  //////////
+//////////////////////////////////
+const deleteClient = (token, id, cb) => {
 
-///////////////////////////////////////////////////////////
-/////// REFACTOR CONNECT Delete Member in Mongo //////////
-/////////////////////////////////////////////////////////
-const deleteMember = (token, id, cb) => {
-  console.log("ENTERED deleteMember")
-
-  // need a model design - some kind of an org code
-  //let data = getClient(token)
   async function thread(id) {
-    let result = await dbMember.delete(id)
+    let result = await db.delete(id)
     return result
   }
 
@@ -122,8 +86,8 @@ const deleteMember = (token, id, cb) => {
 
 /////////////////////////////////////
 module.exports = {
-  addMember,
-  deleteMember,
-  getMembers,
-  updateMember
+  addClient,
+  deleteClient,
+  getClients,
+  updateClient
 }

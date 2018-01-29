@@ -17,14 +17,14 @@ const dbs = (router) => {
 
 	switch(method) {
 			case 'GET':
-				api.getMembers(req.token, function(response){
+				api.getClients(req.token, function(response){
 					res.status(200).send(response)
 					  next()
 				})
 			break;
 
 			case 'DELETE':
-				api.deleteMember(req.token, req.params.id, function(response){
+				api.deleteClient(req.token, req.params.id, function(response){
 		    	res.status(200).send(response)
 					  next()
 			  })
@@ -32,7 +32,7 @@ const dbs = (router) => {
 
 			case 'POST':
 			if (req.body) {
-		        api.updateMember(req.token, req.body, function(response){
+		        api.updateClient(req.token, req.body, function(response){
 		          res.status(200).send(response)
 							next()
 		      })
@@ -47,7 +47,7 @@ const dbs = (router) => {
 
 			case 'PUT':
 			if (req.body) {
-		    api.addMember(req.token, req.body, function(response){
+		    api.addClient(req.token, req.body, function(response){
 		      res.status(200).send(response)
 					  next()
 		      })
