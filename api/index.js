@@ -7,7 +7,7 @@
 
 const clone =     require('clone')
 const uuidv1 =    require('uuid/v1');
-const db =        require('./members')
+const db =        require('./clients')
 
 
 ////////////////////////////////////
