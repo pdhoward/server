@@ -60,6 +60,7 @@ const sms =      express.Router();
 const web =      express.Router();
 const auth =     express.Router();
 const dbs =      express.Router();
+const dba =      express.Router();
 const errs =     express.Router();
 const help =     express.Router();
 
@@ -67,6 +68,7 @@ require('./routes/auth')(auth);
 require('./routes/sms')(sms);
 require('./routes/web')(web);
 require('./routes/dbs')(dbs);
+require('./routes/dba')(dba);
 require('./routes/error')(errs);
 require('./routes/help')(help);
 

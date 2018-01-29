@@ -6,12 +6,13 @@
 
 const clone =     require('clone')
 const uuidv1 =    require('uuid/v1');
-const db =        require('./clients')
+const db =        require('./agents')
+
 
 ////////////////////////////////////
-///////   get all clients ////////
+///////   get all agents    ////////
 //////////////////////////////////
-const getClients = (token, cb) => {
+const getAgents = (token, cb) => {
 
   async function thread() {
     let result = await db.get()
@@ -21,17 +22,17 @@ const getClients = (token, cb) => {
   thread().then((result) => {
     cb(result)
   }).catch((err) => {
-    console.log("ERROR IN Get Client PROCESSING")
+    console.log("ERROR IN Get Agent PROCESSING")
     console.log(err)
   })
 }
 
 
 ////////////////////////////////////
-///////   update client  //////////
+///////   update agent   //////////
 //////////////////////////////////
 
-const updateClient = (token, contact, cb) => {
+const updateAgent = (token, contact, cb) => {
 
   async function thread(contact) {
     let result = await db.update(contact)
@@ -41,15 +42,15 @@ const updateClient = (token, contact, cb) => {
   thread(contact).then((arr) => {
     cb(arr)
   }).catch((err) => {
-    console.log("ERROR IN Update Client PROCESSING")
+    console.log("ERROR IN Update Agent PROCESSING")
     console.log(err)
   })
 }
 
 ////////////////////////////////////
-///////   add new client  //////////
+///////   add new agent  //////////
 //////////////////////////////////
-const addClient = (token, contact, cb) => {
+const addAgent = (token, contact, cb) => {
 
   async function thread(contact) {
     let result = await db.put(contact)
@@ -59,7 +60,7 @@ const addClient = (token, contact, cb) => {
   thread(contact).then((result) => {
     cb(result)
   }).catch((err) => {
-    console.log("ERROR IN Add Member PROCESSING")
+    console.log("ERROR IN Add Agent PROCESSING")
     console.log(err)
   })
 }
@@ -67,7 +68,7 @@ const addClient = (token, contact, cb) => {
 ////////////////////////////////////
 ///////   delete client  //////////
 //////////////////////////////////
-const deleteClient = (token, id, cb) => {
+const deleteAgent = (token, id, cb) => {
 
   async function thread(id) {
     let result = await db.delete(id)
@@ -77,15 +78,15 @@ const deleteClient = (token, id, cb) => {
   thread(id).then((result) => {
     cb(result)
   }).catch((err) => {
-    console.log("ERROR IN DELETE MEMBER PROCESSING")
+    console.log("ERROR IN DELETE Agent PROCESSING")
     console.log(err)
   })
 }
 
 /////////////////////////////////////
 module.exports = {
-  addClient,
-  deleteClient,
-  getClients,
-  updateClient
+  addAgent,
+  deleteAgent,
+  getAgents,
+  updateAgent
 }
