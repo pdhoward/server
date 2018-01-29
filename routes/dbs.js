@@ -12,7 +12,7 @@ const dbs = (router) => {
 	router.use(bodyParser.json());
 	router.use(function(req, res, next) {
 
-	console.log("-------------INCOMING DB MESSAGE -----------")
+	console.log("-------------INCOMING DB MESSAGE CLIENTS -----------")
   let method = req.method
 
 	switch(method) {

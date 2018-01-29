@@ -29,7 +29,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
         member.save(function (err, response) {
           if (err) {
-            console.log("Error When Saving Text Message")
+            console.log("Error When Saving Client")
             reject(err)
           }
           resolve(response)

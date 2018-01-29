@@ -87,8 +87,10 @@ app.get('/', help)
 app.use('/api/sms', sms)
 // web handling
 app.use('/api/web', web)
-// db handling for clients
+// db handling for clients and sales
 app.use('/api/db', dbs)
+// db handling for agents and products
+app.use('/api/dba', dba)
 
 // spin up http server
 app.listen(port, () => {

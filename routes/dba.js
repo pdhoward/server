@@ -5,26 +5,26 @@
 /////////////////////////////////////////////////////////////
 
 const bodyParser =  			require('body-parser')
-const api =         			require('../api')
+const api =         			require('../apia')
 
-const dbs = (router) => {
+const dba = (router) => {
 
 	router.use(bodyParser.json());
 	router.use(function(req, res, next) {
 
-	console.log("-------------INCOMING DB MESSAGE -----------")
+	console.log("-------------INCOMING DB MESSAGE AGENTS -----------")
   let method = req.method
 
 	switch(method) {
 			case 'GET':
-				api.getClients(req.token, function(response){
+				api.getAgents(req.token, function(response){
 					res.status(200).send(response)
 					  next()
 				})
 			break;
 
 			case 'DELETE':
-				api.deleteClient(req.token, req.params.id, function(response){
+				api.deleteAgent(req.token, req.params.id, function(response){
 		    	res.status(200).send(response)
 					  next()
 			  })
@@ -32,7 +32,7 @@ const dbs = (router) => {
 
 			case 'POST':
 			if (req.body) {
-		        api.updateClient(req.token, req.body, function(response){
+		        api.updateAgent(req.token, req.body, function(response){
 		          res.status(200).send(response)
 							next()
 		      })
@@ -47,7 +47,7 @@ const dbs = (router) => {
 
 			case 'PUT':
 			if (req.body) {
-		    api.addClient(req.token, req.body, function(response){
+		    api.addAgent(req.token, req.body, function(response){
 		      res.status(200).send(response)
 					  next()
 		      })
@@ -70,4 +70,4 @@ const dbs = (router) => {
  });
 }
 
-module.exports = dbs
+module.exports = dba
