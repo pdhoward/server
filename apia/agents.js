@@ -43,15 +43,14 @@ module.exports = {
       if (err) {
         console.log(r("Error When Updating Agent"))
         reject(err)
-      }      
+      }
       resolve(response);
       })
     })
   },
 
   delete: function(id) {
-    console.log("DEBUG DELETE")
-    console.log(id)
+    console.log("DELETE METHOD NOT ENABLED ")    
     return new Promise((resolve, reject) => {
       Agent.remove({id: id}, function(err, response) {
           if (err) {

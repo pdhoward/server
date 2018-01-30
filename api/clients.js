@@ -50,8 +50,7 @@ module.exports = {
   },
 
   delete: function(id) {
-    console.log("DEBUG DELETE")
-    console.log(id)
+    console.log("DELETE METHOD NOT ENABLED")  
     return new Promise((resolve, reject) => {
       Member.remove({id: id}, function(err, response) {
           if (err) {
