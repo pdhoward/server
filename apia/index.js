@@ -39,7 +39,7 @@ const updateAgent = (token, contact, cb) => {
     return result
   }
 
-  thread(contact).then((arr) => {
+  thread(contact).then((arr) => {  
     cb(arr)
   }).catch((err) => {
     console.log("ERROR IN Update Agent PROCESSING")

@@ -31,7 +31,7 @@ const dba = (router) => {
 			break;
 
 			case 'POST':
-			if (req.body) {
+			if (req.body) {				
 		        api.updateAgent(req.token, req.body, function(response){
 		          res.status(200).send(response)
 							next()

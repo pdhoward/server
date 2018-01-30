@@ -25,7 +25,7 @@ module.exports = {
 
   put: function(params) {
 
-    let member = new Member(params);
+    let Agent = new Agent(params);
     return new Promise((resolve, reject) => {
         Agent.save(function (err, response) {
           if (err) {
@@ -39,11 +39,11 @@ module.exports = {
 
   update: function(contact) {
     return new Promise((resolve, reject) => {
-    Agent.findOneAndUpdate({id: contact.id}, contact, function (err, response) {
+    Agent.findOneAndUpdate({id: contact.id}, contact, {upsert: true}, function (err, response) {
       if (err) {
         console.log(r("Error When Updating Agent"))
         reject(err)
-      }
+      }      
       resolve(response);
       })
     })

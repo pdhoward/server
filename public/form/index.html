@@ -21,18 +21,16 @@
     <div class='container bg-faded'>
       <div class='row'>
        <div class='web-widget'>
-
-    <form action="/submit" method="post">
-      <input type="text" name="name" placeholder="firstname">
-      <input type="number" name="number" placeholder="id">
-      <input type="text" name ="email" placeholder="email">
-      <input type="text" name="longstring" placeholder="password > 6 char">
-
-      <!-- Uncomment me to show how date works-->
-      <!-- <input type="date" name="date"> -->
-
-      <input type="submit" style="background-color:rgb(255,0,0)">
-    </form>
+         <form action="/api/dba" method="post">
+           <h4>Create a New Agent for the Bot Store </h4>
+           <input type="text" name="avatarURL" placeholder="avatar">
+           <input type="text" name="firstname" placeholder="first name">
+           <input type="text" name="lastname" placeholder="last name">
+           <input type="text" name ="email" placeholder="email">
+           <input type="text" name ="cell" placeholder="cell">
+           <input type="text" name ="id" placeholder="id">
+           <input type="submit" style="background-color:rgb(127,255,212)">
+         </form>
     </div>
   </div>
   </div>
