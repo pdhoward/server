@@ -33,6 +33,7 @@ app.use(express.static('public'));
 app.use('/form', express.static('public'));
 app.use(cors())
 
+
 ///////////////////////////////////////////////////////////////////////
 /////////////////// messaging alert for platform errors ///////////////
 //////////////////////////////////////////////////////////////////////
@@ -64,6 +65,7 @@ const dbc =      express.Router();
 const dba =      express.Router();
 const errs =     express.Router();
 const help =     express.Router();
+const unk =      express.Router();
 
 require('./routes/auth')(auth);
 require('./routes/sms')(sms);
@@ -72,7 +74,7 @@ require('./routes/dbc')(dbc);
 require('./routes/dba')(dba);
 require('./routes/error')(errs);
 require('./routes/help')(help);
-
+require('./routes/unk')(unk);
 
 //////////////////////////////////////////////////////////////////////////
 ///////////////////////////// API CATALOGUE /////////////////////////////
@@ -80,8 +82,6 @@ require('./routes/help')(help);
 
 // auth test
 app.use(auth)
-// error handling
-app.use(errs)
 // help
 app.get('/', help)
 // twilio handling
@@ -92,6 +92,10 @@ app.use('/api/web', web)
 app.use('/api/dbc', dbc)
 // db handling for agents and products
 app.use('/api/dba', dba)
+//unknown request - page not found - 404
+app.use(unk)
+// error handling
+app.use(errs)
 
 // spin up http server
 app.listen(port, () => {
