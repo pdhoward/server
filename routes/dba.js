@@ -10,10 +10,20 @@ const api =         			require('../apia')
 const dba = (router) => {
 
 	router.use(bodyParser.json());
+
+	router.delete("/:id", function(req, res, next) {
+ 	 console.log("-------------DELETING DB MESSAGE AGENTS -----------")
+	 console.log(JSON.stringify(req.params.id))
+ 	 api.deleteAgent(req.token, req.params.id, function(response){
+ 		 res.status(200).send(response)
+ 			 next()
+ 	 })
+  })
+
 	router.use(function(req, res, next) {
 
-	console.log("-------------INCOMING DB MESSAGE AGENTS -----------")
-  let method = req.method	
+	console.log("------------MORE-INCOMING DB MESSAGE AGENTS -----------")
+  let method = req.method
 
 	switch(method) {
 			case 'GET':
@@ -22,14 +32,14 @@ const dba = (router) => {
 					  next()
 				})
 			break;
-
+			/*
 			case 'DELETE':
 				api.deleteAgent(req.token, req.params.id, function(response){
 		    	res.status(200).send(response)
 					  next()
 			  })
 			break;
-
+			*/
 			case 'POST':
 			if (req.body) {
 		        api.updateAgent(req.token, req.body, function(response){
@@ -61,13 +71,14 @@ const dba = (router) => {
 			break;
 
 			default:
-			console.log("Error - default processing in dbs path")
-			  next(err)
+				console.log("Default processing in dbs path")
+			  next()
 			break;
 
 	}
 
  });
+
 }
 
 module.exports = dba
