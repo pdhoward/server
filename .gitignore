@@ -1,5 +1,5 @@
 node_modules
-db/data
+db
 config
 setup
 public/bundle
